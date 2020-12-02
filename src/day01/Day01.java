@@ -5,14 +5,19 @@ import java.util.List;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
+import adventOfCode2020.IDaySolution;
 import commons.PuzzleInputReader;
 import day01.NestedForExclusive.IAction;
 
-public class Day01 {
+public class Day01 implements IDaySolution {
 	private final String INPUT_FILE_NAME = "src/Day01/day01_input.txt";
 
 	private List<Integer> expenses_list = new ArrayList<>();
 	private final int MATCHING_EXPENSES_SUM = 2020;
+
+	public int getDayNumber() {
+		return 1;
+	}
 
 	private void loadPuzzleInput() {
 		for (String puzzle_input_line : new PuzzleInputReader(INPUT_FILE_NAME).getListOfLines()) {
@@ -117,8 +122,9 @@ public class Day01 {
 	}
 
 	public String[] solveUsingStack() {
-		if (expenses_list.size() == 0)
+		if (expenses_list.size() == 0) {
 			loadPuzzleInput();
+		};
 
 		Integer solution_part_one = solveGenericUsingStack(2);
 		Integer solution_part_two = solveGenericUsingStack(3);
@@ -127,8 +133,9 @@ public class Day01 {
 	}
 
 	public String[] solveUsingRecursion() {
-		if (expenses_list.size() == 0)
+		if (expenses_list.size() == 0) {
 			loadPuzzleInput();
+		};
 
 		String solution_part_one = solveGenericUsingRecursion(2);
 		String solution_part_two = solveGenericUsingRecursion(3);
@@ -136,15 +143,11 @@ public class Day01 {
 		return new String[] { solution_part_one, solution_part_two };
 	}
 
-	public static void main(String[] args) {
-		Day01 day01 = new Day01();
-
-		String[] day01SolutionStack = day01.solveUsingStack();
-		String[] day01SolutionRecursion = day01.solveUsingRecursion();
-
-		System.out.println(String.format("Day01 using stack, partOne: %s, partTwo: %s", day01SolutionStack));
-		System.out.println(String.format("Day01 using recursion, partOne: %s, partTwo: %s", day01SolutionRecursion));
-
+	public String[] getSolution() {
+		// Uncomment desired solution method
+//		return solveUsingRecursion();
+		
+		return solveUsingStack();
 	}
 
 }
