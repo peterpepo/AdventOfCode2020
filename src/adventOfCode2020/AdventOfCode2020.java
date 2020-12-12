@@ -14,6 +14,7 @@ import day08.Day08;
 import day09.Day09;
 import day10.Day10;
 import day11.Day11;
+import day12.Day12;
 
 public class AdventOfCode2020 {
 	private static List<IDaySolution> completedDays = new ArrayList<>();
@@ -30,6 +31,7 @@ public class AdventOfCode2020 {
 		completedDays.add(new Day09());
 		completedDays.add(new Day10());
 		completedDays.add(new Day11());
+		completedDays.add(new Day12());
 	}
 	
 	public void printCompletedSolutions() {
